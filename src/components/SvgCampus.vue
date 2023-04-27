@@ -1019,11 +1019,9 @@ export default {
       this.ocupaciones_info.map((item) => {
          try {
 
-            // sala_id = salas.find(salas_item => salas_item.svg_id === svg_id).id
             var svg_id = this.salas.find(salas_item => salas_item.id === item.sala_id).svg_id
-            console.log("svg_id:", svg_id)
 
-            console.log("document style (antes):", document.getElementById(svg_id).style.fill)
+            document.getElementById(svg_id).style["fill-opacity"]=1.0;
             document.getElementById(svg_id).style.fill = 
                item.tasa_ocupacion < 0.33 ? 
                getComputedStyle(document.documentElement).getPropertyValue('--occ1') : 
@@ -1033,16 +1031,13 @@ export default {
                      getComputedStyle(document.documentElement).getPropertyValue('--occ3') : 
                      getComputedStyle(document.documentElement).getPropertyValue('--occ4');
 
-            console.log("document style (ahora):", document.getElementById(svg_id).style.fill)
          } catch (error) {
             console.log("Error obteniendo datos de ocupación de una sala.\n", error)
          }
       })
-      console.log("document style:", document.getElementById(this.salas[1].svg_id).style.fill)
    },
    computed: {
       ocupaciones_info(){
-			console.log("get store.ocupaciones_info")
 			return this.occupancyStore.getOcupacionesInfo;
 		},
       salas() {
@@ -1056,23 +1051,14 @@ export default {
 <style>
 @namespace xlink 'http://www.w3.org/1999/xlink';
 :root {
+   /* definir variables de colores para cada nivel de ocupación */
    /* occupancy levels: 0-33%, 33% - 66%, 66% - 100%, >100% */
-/* definir variables de colores para cada nivel de ocupación */
 
   --occ1: #65FD65;
   --occ2: #faf066;
   --occ3: #ef8833;
   --occ4: #EF5555;
 }
-/* elementos de imagen svg */
-svg rect, svg path {
-   /* fill: var(--occ1); */
-   /* fill-opacity:0.5; */
-   stroke:#666666;
-   stroke-width:1.07402432;
-   stroke-opacity:1
-}
-
 
 .my-sgv-component{
    display: inline-block;

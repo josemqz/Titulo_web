@@ -58,7 +58,7 @@ main{
 	main{
 		/* min-height: 80vh; */
 		/* display: flex; */
-		grid-gap: 2vh;
+		grid-gap: 1vh;
 	}
 }
 </style>
