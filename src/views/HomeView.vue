@@ -37,8 +37,8 @@ export default {
 	// cada 5 segundos ?
 	mounted() {
 		console.log("onMounted start")
-		this.occupancyStore.fetchSalas();
-		this.occupancyStore.fetchOcupaciones();
+		//this.occupancyStore.fetchSalas();
+		//this.occupancyStore.fetchOcupaciones();
 		this.occupancyStore.setTasasOcupacion();
 		console.log("onMounted end")
 	}

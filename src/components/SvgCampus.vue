@@ -1012,36 +1012,36 @@ export default {
       }
    },
    methods: {
-     paintAreas() {
+      paintAreas() {
      
-          this.occupancyStore.fetchSalas();
-		this.occupancyStore.fetchOcupaciones();
-		this.occupancyStore.setTasasOcupacion();
+         // this.occupancyStore.fetchSalas();
+         // this.occupancyStore.fetchOcupaciones();
+         this.occupancyStore.setTasasOcupacion();
           
-          console.log("ocupaciones store:\n", this.ocupaciones_info)
-          console.log("salas store:\n", this.salas)
+         console.log("ocupaciones store:\n", this.ocupaciones_info)
+         console.log("salas store:\n", this.salas)
 
-          // se pinta cada zona dependiendo de su nivel de ocupación
-          this.ocupaciones_info.map((item) => {
-          try {
+         // se pinta cada zona dependiendo de su nivel de ocupación
+         this.ocupaciones_info.map((item) => {
+            try {
 
-          var svg_id = this.salas.find(salas_item => salas_item.id === item.sala_id).svg_id
+               var svg_id = this.salas.find(salas_item => salas_item.id === item.sala_id).svg_id
 
-          document.getElementById(svg_id).style["fill-opacity"]=1.0;
-          document.getElementById(svg_id).style.fill = 
-          item.tasa_ocupacion < 0.33 ? 
-          getComputedStyle(document.documentElement).getPropertyValue('--occ1') : 
-             item.tasa_ocupacion < 0.66 ? 
-             getComputedStyle(document.documentElement).getPropertyValue('--occ2') : 
-                item.tasa_ocupacion <= 1 ? 
-                getComputedStyle(document.documentElement).getPropertyValue('--occ3') : 
-                getComputedStyle(document.documentElement).getPropertyValue('--occ4');
+               document.getElementById(svg_id).style["fill-opacity"]=1.0;
+               document.getElementById(svg_id).style.fill = 
+               item.tasa_ocupacion < 0.33 ? 
+               getComputedStyle(document.documentElement).getPropertyValue('--occ1') : 
+                  item.tasa_ocupacion < 0.66 ? 
+                  getComputedStyle(document.documentElement).getPropertyValue('--occ2') : 
+                     item.tasa_ocupacion <= 1 ? 
+                     getComputedStyle(document.documentElement).getPropertyValue('--occ3') : 
+                     getComputedStyle(document.documentElement).getPropertyValue('--occ4');
 
-          } catch (error) {
-          console.log("Error obteniendo datos de ocupación de una sala.\n", error)
-          }
-          })
-      };
+            } catch (error) {
+               console.log("Error obteniendo datos de ocupación de una sala.\n", error)
+            }
+         })
+      }
       
    },
    mounted() {
@@ -1050,11 +1050,10 @@ export default {
    created() {
      this.interval = setInterval(()=>{
           this.paintAreas()}, 10000) 
-     }
    },
    computed: {
       ocupaciones_info(){
-			return this.occupancyStore.getOcupacionesInfo;
+			return this.occupancyStore.getLastOcupacionesInfo;
 		},
       salas() {
          return this.occupancyStore.getSalas;
