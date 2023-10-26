@@ -12,6 +12,19 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
 
+### Instalar nvm
+```
+wget https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash  
+chmod +x install.sh  
+./install.sh
+```
+
+### Instalar node
+```
+nvm install node
+```
+
+### Instalar dependencias de proyecto
 ```sh
 npm install
 ```

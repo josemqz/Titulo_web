@@ -38,7 +38,7 @@ export const useOccupancyStore = defineStore('occupancy',{
                 console.error(error)
                 throw error
             })
-            // console.log("response.data [getSalas]", response.data)  
+            console.log("response.data [getSalas]", response.data)  
             this.salas = response.data
             
         },
@@ -58,8 +58,8 @@ export const useOccupancyStore = defineStore('occupancy',{
             this.ocupaciones_info = this.ocupaciones_info.map( item => { return {...item, tasa_ocupacion:-1}});
             this.oc_tiempos = this.ocupaciones_info.map(({ timestamp }) => new Date(timestamp));
             
-            // console.log("ocupaciones_info:", this.ocupaciones_info, "tipo:", typeof(this.ocupaciones_info))
-            // console.log("tiempos:", this.oc_tiempos)
+            console.log("ocupaciones_info:", this.ocupaciones_info, "tipo:", typeof(this.ocupaciones_info))
+            console.log("tiempos:", this.oc_tiempos)
         },
     
         async setTasasOcupacion(){
@@ -69,7 +69,7 @@ export const useOccupancyStore = defineStore('occupancy',{
             // obtener timestamp más temprana y más tardía y mostrar // no es necesario, mejor mostrar hora de cada detección
             this.t_last = new Date(Math.max.apply(null, this.oc_tiempos.map(function(e) {
                 // console.log(e)
-                // console.log(e.getTime())
+                console.log(e.getTime())
                 return e.getTime();
             })));
         
@@ -84,9 +84,12 @@ export const useOccupancyStore = defineStore('occupancy',{
 
                         console.log("\n - - - ")
                         
-                        console.log(`(${item.sala_id},${this.salas.find(salas_item => salas_item.id === item.sala_id).nombre}): 
-                                    ocupacion: ${item.ocupacion_actual}, 
-                                    maxOcupacion: ${ocupacion_max}`);
+                        // if mas_reciente append in ocupancy
+                        
+                        console.log(`(${item.sala_id}, ${
+                                        this.salas.find(salas_item => salas_item.id === item.sala_id).nombre}): 
+                                        ocupacion: ${item.ocupacion_actual}, 
+                                        maxOcupacion: ${ocupacion_max}`);
                         
                         
                         console.log("exito")
