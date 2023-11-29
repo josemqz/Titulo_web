@@ -5,7 +5,7 @@ import axios from 'axios';
 export const useOccupancyStore = defineStore('occupancy',{
     state: () => ({
 		// objeto axios para hacer HTTP requests al servidor de backend 
-        backend: axios.create({ baseURL: 'http://192.168.43.108:5000' }),
+        backend: axios.create({ baseURL: 'http://localhost:5000' }),
 
         ocupaciones_info: [],
         oc_tiempos: [],
@@ -43,7 +43,7 @@ export const useOccupancyStore = defineStore('occupancy',{
             
         },
         
-        async fetchOcupaciones() {
+        async fetchLastOcupaciones() {
             var response =
             await this.backend.get('/ult_ocupaciones')
             .then(response => {

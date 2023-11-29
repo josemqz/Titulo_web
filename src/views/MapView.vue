@@ -11,7 +11,6 @@
 </template>
 
 <script>
-// import TheWelcome from '../components/TheWelcome.vue'
 
 // import { onMounted, computed } from "vue";
 import SvgCampus from '../components/SvgCampus.vue';
@@ -34,7 +33,6 @@ export default {
 		},
 	},
 
-	// cada 5 segundos ?
 	mounted() {
 		console.log("onMounted start")
 		//this.occupancyStore.fetchSalas();
