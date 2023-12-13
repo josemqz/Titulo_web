@@ -33,6 +33,7 @@ defineProps({
          <!-- inkscape:groupmode="layer"
          id="layer1">
           inkscape:label="Capa 1"> -->
+            
             <rect
             style="display:inline;fill:#b3b3b3;fill-opacity:0;stroke:#969696;stroke-width:0.525;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
             id="rect5002"
@@ -580,7 +581,7 @@ defineProps({
             height="10.851532"
             x="95.712387"
             y="136.25232"><title
-               id="title1249">Fablab</title></rect><rect
+               id="title1249">FabLab</title></rect><rect
             style="display:inline;fill:#b3b3b3;fill-opacity:0;stroke:#969696;stroke-width:0.525;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
             id="rect954-9"
             width="5.4710541"
@@ -734,8 +735,16 @@ defineProps({
             height="12.396679"
             x="120.52203"
             y="146.08658"><title
-               id="title213">Aula Magna</title>
+               id="title213">Aula Magna</title></rect><rect
+            style="display:inline;fill:#b3b3b3;fill-opacity:0;stroke:#969696;stroke-width:0.525;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+            id="rect1439"
+            width="2.6878378"
+            height="2.3202012"
+            x="98.221016"
+            y="136.26109"><title
+               id="title1437">Oficina FabLab</title>
             </rect>
+
          </g>
 
       </svg>
